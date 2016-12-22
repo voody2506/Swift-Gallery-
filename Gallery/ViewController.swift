@@ -74,7 +74,7 @@ class ViewController: UIViewController {
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGestureRight))
         swipeRight.direction = UISwipeGestureRecognizerDirection.right
-        self.bg.addGestureRecognizer(swipeRight)
+        self.view.addGestureRecognizer(swipeRight)
         
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGestureLeft(gesture:)))
         
@@ -92,6 +92,7 @@ class ViewController: UIViewController {
     
     
     func respondToSwipeGestureLeft(gesture: UIGestureRecognizer) {
+        
         if (cnt == 1){
             cnt = 5
         }else{
@@ -101,7 +102,7 @@ class ViewController: UIViewController {
         
         UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseOut], animations: {
             
-            self.view.alpha = 0.0
+            self.bg.alpha = 0.0
             
         }, completion: { finished in
             self.bg.image = UIImage(named: String(self.cnt) + "." + "jpg")
